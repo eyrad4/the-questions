@@ -8,6 +8,9 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+import store from './store';
+import router  from './router';
+
 import Bulma from 'bulma';
 Vue.use(Bulma);
 
@@ -31,5 +34,7 @@ Vue.component('App', require('./App.vue').default);
  */
 
 const app = new Vue({
+    store,
+    router,
     el: '#app',
 });
