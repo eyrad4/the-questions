@@ -5,7 +5,7 @@
             <div class="column is-6 is-offset-3">
                 <div class="field">
                     <p class="control has-icons-left has-icons-right">
-                        <input class="input" type="email" placeholder="Email">
+                        <input class="input" type="email" v-model="email" placeholder="Email">
                         <span class="icon is-small is-left">
                             <i class="fas fa-envelope"></i>
                         </span>
@@ -16,7 +16,7 @@
                 </div>
                 <div class="field">
                     <p class="control has-icons-left">
-                        <input class="input" type="password" placeholder="Password">
+                        <input class="input" type="password" v-model="password" placeholder="Password">
                         <span class="icon is-small is-left">
                             <i class="fas fa-lock"></i>
                         </span>
@@ -24,7 +24,7 @@
                 </div>
                 <div class="field">
                     <p class="control">
-                        <button class="button is-success">
+                        <button class="button is-success" @click="login">
                             Login
                         </button>
                     </p>
@@ -36,7 +36,17 @@
 
 <script>
     export default {
-        name: "SignIn"
+        data() {
+            return {
+                email: null,
+                password: null
+            }
+        },
+        methods: {
+            login() {
+                this.$store.dispatch('login', {'email': this.email, 'password': this.password})
+            }
+        }
     }
 </script>
 

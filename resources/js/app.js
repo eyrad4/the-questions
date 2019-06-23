@@ -10,9 +10,12 @@ window.Vue = require('vue');
 
 import store from './store';
 import router  from './router';
+import ApiService from './common/api.service'
 
 import Bulma from 'bulma';
 Vue.use(Bulma);
+
+ApiService.init();
 
 /**
  * The following block of code may be used to automatically register your
