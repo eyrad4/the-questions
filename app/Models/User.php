@@ -6,7 +6,6 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Tymon\JWTAuth\Contracts\JWTSubject;
-use Illuminate\Support\Str;
 
 class User extends Authenticatable implements JWTSubject
 {
@@ -64,9 +63,4 @@ class User extends Authenticatable implements JWTSubject
         return $this->hasMany(Question::class);
     }
 
-    public function setTitleAttribute($value)
-    {
-        $this->attributes['title'] = $value;
-        $this->attributes['slug'] = Str::slug($value);
-    }
 }
