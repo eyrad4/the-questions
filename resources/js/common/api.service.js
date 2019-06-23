@@ -13,6 +13,13 @@ const ApiService = {
             ] = `Token ${JwtService.getToken()}`;
     },
 
+    query(resource, params) {
+        console.log(params)
+        return axios.get(`${resource}`, params).catch((error) => {
+            throw new Error(`ApiService ${error}`)
+        });
+    },
+
     post(resource, params) {
         return axios.post(`${resource}`, params);
     }

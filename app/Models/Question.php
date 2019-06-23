@@ -7,6 +7,11 @@ use Illuminate\Support\Str;
 
 class Question extends Model
 {
+
+    protected $appends = [
+        'created_date'
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class);
@@ -16,5 +21,10 @@ class Question extends Model
     {
         $this->attributes['title'] = $value;
         $this->attributes['slug'] = Str::slug($value);
+    }
+
+    public function getCreatedDateAttribute()
+    {
+        return $this->created_at->diffForHumans();
     }
 }

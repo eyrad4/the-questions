@@ -1,2 +1,30 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);
+@import url(https://fonts.googleapis.com/css?family=Nunito);.question-list .statistics .vote,
+.question-list .statistics .answers {
+  margin-bottom: 0.5rem;
+}
+
+.question-list .statistics .answers {
+  padding: 8px 0px;
+}
+
+.question-list .statistics > div {
+  border: 2px solid #fff;
+}
+
+.question-list .statistics .answers.has-answered {
+  border-color: #38c172;
+}
+
+.question-list .statistics .answers.has-answered div {
+  color: #38c172 !important;
+}
+
+.question-list .statistics .answers.has-best-answered {
+  border-color: #38c172;
+  background: #38c172;
+}
+
+.question-list .statistics .answers.has-best-answered div {
+  color: white !important;
+}
 

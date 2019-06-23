@@ -13,3 +13,14 @@ Route::group([
     Route::post('me', 'AuthController@me');
 
 });
+
+Route::group([
+    'prefix' => 'questions'
+], function () {
+
+    Route::get('/', [
+        'uses' => 'Questions@index',
+        'as' => '/'
+    ]);
+
+});

@@ -1,0 +1,35 @@
+.question-list{
+
+  .statistics {
+
+    .vote, .answers {
+      margin-bottom: .5rem;
+    }
+
+    .answers {
+      padding: 8px 0px;
+    }
+
+    & > div {
+      border: 2px solid #fff;
+    }
+
+    .answers.has-answered {
+      border-color: $green;
+
+      div{
+        color: $green !important
+      }
+    }
+
+    .answers.has-best-answered {
+      border-color: $green;
+      background: $green;
+
+      div {
+        color: white !important
+      }
+      
+    }
+  }
+}
