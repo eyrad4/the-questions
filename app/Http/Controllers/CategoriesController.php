@@ -3,9 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Repositories\CategoryRepository;
 
-class CategoriesController extends Controller
+class CategoriesController extends ApiController
 {
+
+    private $categoryRepository;
+
+    public function __construct()
+    {
+        parent::__construct();
+
+        $this->categoryRepository = app(CategoryRepository::class);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +24,8 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        //
+        $cateories = $this->categoryRepository->getCategoryList();
+        return response()->json($cateories, 200);
     }
 
     /**
@@ -45,7 +57,9 @@ class CategoriesController extends Controller
      */
     public function show($id)
     {
-        //
+        $category = $this->categoryRepository->getCategory($id);
+
+        return response()->json($category, 200);
     }
 
     /**

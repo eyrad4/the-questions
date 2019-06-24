@@ -20,7 +20,23 @@ Route::group([
 
     Route::get('/', [
         'uses' => 'Questions@index',
-        'as' => '/'
+        'as' => 'all'
+    ]);
+
+});
+
+Route::group([
+    'prefix' => 'categories'
+], function () {
+
+    Route::get('/', [
+        'uses' => 'CategoriesController@index',
+        'as' => 'all'
+    ]);
+
+    Route::get('/{id}', [
+        'uses' => 'CategoriesController@show',
+        'as' => 'single'
     ]);
 
 });
