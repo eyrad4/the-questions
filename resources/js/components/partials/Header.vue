@@ -31,12 +31,21 @@
                 <div class="navbar-end">
                     <div class="navbar-item">
                         <div class="buttons">
-                            <router-link class="button is-primary" :to="{name: 'SignUp'}">
-                                <strong>Sign up</strong>
-                            </router-link>
-                            <router-link class="button is-light" :to="{name: 'SignIn'}">
-                                <strong>Sign in</strong>
-                            </router-link>
+                            <template v-if="!auth.isAuthenticated">
+                                <router-link class="button is-primary" :to="{name: 'SignUp'}">
+                                    <strong>Sign up</strong>
+                                </router-link>
+                                <router-link class="button is-light" :to="{name: 'SignIn'}">
+                                    <strong>Sign in</strong>
+                                </router-link>
+                            </template>
+                            <template v-else>
+                                <a class="button is-link">Admin panel</a>
+                                <router-link class="button is-primary" :to="{name: 'SignUp'}">
+                                    <strong>Profile</strong>
+                                </router-link>
+                                <a class="button" @click.prevent="logout">Logout</a>
+                            </template>
                         </div>
                     </div>
                 </div>
@@ -46,8 +55,18 @@
 </template>
 
 <script>
+    import { mapState } from 'vuex'
     export default {
-        name: "Header"
+        computed: {
+            ...mapState({
+                auth: 'auth'
+            })
+        },
+        methods: {
+            logout() {
+                this.$store.dispatch('logout')
+            }
+        }
     }
 </script>
 
