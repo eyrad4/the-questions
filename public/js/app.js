@@ -37180,7 +37180,6 @@ var ApiService = {
     axios__WEBPACK_IMPORTED_MODULE_0___default.a.defaults.headers.common["Authorization"] = "Token ".concat(_jwt_service__WEBPACK_IMPORTED_MODULE_1__["default"].getToken());
   },
   query: function query(resource, params) {
-    console.log(params);
     return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("".concat(resource), params)["catch"](function (error) {
       throw new Error("ApiService ".concat(error));
     });
@@ -37203,7 +37202,7 @@ var ApiService = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "API_URL", function() { return API_URL; });
-var API_URL = 'http://127.0.0.1:8000/api';
+var API_URL = 'http://thequestions.local/api';
 
 /***/ }),
 
@@ -37895,8 +37894,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! G:\OSPanel\domains\the-questions\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! G:\OSPanel\domains\the-questions\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\OpenServer2\OSPanel\domains\the-questions\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\OpenServer2\OSPanel\domains\the-questions\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

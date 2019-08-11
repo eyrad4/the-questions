@@ -14,7 +14,6 @@ const ApiService = {
     },
 
     query(resource, params) {
-        console.log(params)
         return axios.get(`${resource}`, params).catch((error) => {
             throw new Error(`ApiService ${error}`)
         });
