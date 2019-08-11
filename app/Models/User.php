@@ -6,10 +6,11 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Tymon\JWTAuth\Contracts\JWTSubject;
+use App\Models\Traits\TSlug;
 
 class User extends Authenticatable implements JWTSubject
 {
-    use Notifiable;
+    use Notifiable, TSlug;
 
     /**
      * The attributes that are mass assignable.
@@ -37,6 +38,19 @@ class User extends Authenticatable implements JWTSubject
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Boot method. Observer for model on created method.
+     */
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::created(function ($user) {
+            $user->slug = $user->hashSlug(class_basename($user), $user->id, $user->created_at);
+            $user->save();
+        });
+    }
 
     /**
      * Get the identifier that will be stored in the subject claim of the JWT.
